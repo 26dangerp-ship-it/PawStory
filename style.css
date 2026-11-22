@@ -1,0 +1,63 @@
+/* Global Theme & Typography */
+body {
+  background-color: #fffdf9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2b2d42;
+}
+
+/* Primary Warm Terracotta Buttons */
+.btn-warm {
+  background-color: #e07a5f;
+  color: #ffffff;
+  border: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-warm:hover {
+  background-color: #c9654b;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Hero & Shelter Highlight Box */
+.hero-box,
+.shelter-box {
+  background-color: #f4f1de;
+}
+
+/* Pet Cards & Images */
+.pet-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+.pet-card img {
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Details Page Image */
+.detail-img {
+  max-height: 440px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Favorites Thumbnail */
+.saved-img {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Accent Link */
+.text-warm {
+  color: #e07a5f;
+}

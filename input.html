@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawStory | Find Your New Best Friend</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" href="index.html">🐾 PawStory</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active fw-semibold" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="details.html?pet=biscuit">Details</a></li>
+          <li class="nav-item"><a class="nav-link" href="adopt.html?pet=biscuit">Adopt</a></li>
+          <li class="nav-item"><a class="nav-link" href="favorites.html">Favorites <span id="badge" class="badge bg-danger rounded-pill">3</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero & Search -->
+  <header class="container my-4">
+    <div class="hero-box p-4 p-md-5 rounded-4 shadow-sm">
+      <p class="text-muted fw-semibold mb-1">Welcome back to PawStory 👋</p>
+      <h1 class="display-5 fw-bold mb-3">Find your new best friend</h1>
+      <input id="q" class="form-control form-control-lg mb-3" style="max-width: 520px;" placeholder="Search breed, name or category..." oninput="render()">
+      <div class="d-flex flex-wrap gap-2">
+        <button class="btn btn-dark rounded-pill px-4 filter-btn" onclick="setCat('All', this)">All (15)</button>
+        <button class="btn btn-outline-dark rounded-pill px-4 filter-btn" onclick="setCat('Dogs', this)">Dogs (5)</button>
+        <button class="btn btn-outline-dark rounded-pill px-4 filter-btn" onclick="setCat('Cats', this)">Cats (5)</button>
+        <button class="btn btn-outline-dark rounded-pill px-4 filter-btn" onclick="setCat('Rabbits', this)">Rabbits (5)</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Responsive Bootstrap Grid -->
+  <main class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-bold mb-0">Waiting for a home</h2>
+      <a href="favorites.html" class="text-warm text-decoration-none fw-semibold">View Saved →</a>
+    </div>
+    <div class="row g-4" id="grid"></div>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <p class="mb-0">🐾 PawStory – Every Pet Deserves a Loving Story | LA-II Mini Project</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="pets.js"></script>
+  <script>
+    let cat = "All";
+    function setCat(c, btn) {
+      cat = c;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.replace("btn-dark", "btn-outline-dark"));
+      btn.classList.replace("btn-outline-dark", "btn-dark");
+      render();
+    }
+    function render() {
+      const q = document.getElementById("q").value.toLowerCase(), favs = getFavs();
+      document.getElementById("badge").innerText = favs.length;
+      document.getElementById("grid").innerHTML = Object.entries(PETS)
+        .filter(([_, p]) => (cat === "All" || p.cat === cat) && (p.name + p.meta + p.cat).toLowerCase().includes(q))
+        .map(([id, p]) => `
+          <div class="col-sm-6 col-lg-4">
+            <div class="card pet-card h-100 border-0 shadow-sm">
+              <img src="${p.img}" class="card-img-top" alt="${p.name}">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <h4 class="fw-bold mb-0">${p.name}</h4>
+                  <span class="badge bg-light text-dark border">${p.cat}</span>
+                </div>
+                <p class="text-muted small mb-3">${p.meta}</p>
+                <div class="mt-auto d-flex gap-2">
+                  <a href="details.html?pet=${id}" class="btn btn-warm w-100 fw-semibold">Meet ${p.name}</a>
+                  <button onclick="toggleFav('${id}');render()" class="btn ${favs.includes(id) ? 'btn-danger' : 'btn-outline-danger'}">♥</button>
+                </div>
+              </div>
+            </div>
+          </div>`).join("");
+    }
+    render();
+  </script>
+</body>
+</html>

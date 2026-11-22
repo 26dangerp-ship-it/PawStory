@@ -1,0 +1,30 @@
+const PETS = {
+  // Dogs (5)
+  biscuit:  { name: "Biscuit",  cat: "Dogs",    meta: "Golden Retriever • 2 yrs • Male",     shelter: "Happy Tails Shelter, Nagpur",  badges: ["Vaccinated", "Neutered", "Good with kids"],   bio: "Playful, gentle dog who loves long walks and belly rubs.",            img: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=700&q=80" },
+  sheru:    { name: "Sheru",    cat: "Dogs",    meta: "German Shepherd • 3 yrs • Male",      shelter: "Nagpur Canine Rescue",         badges: ["Vaccinated", "Loyal", "Trained"],             bio: "Brave, intelligent companion who loves morning runs and fetch.",      img: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=700&q=80" },
+  zorro:    { name: "Zorro",    cat: "Dogs",    meta: "Siberian Husky • 1.5 yrs • Male",     shelter: "Paws & Hearts, Nagpur",        badges: ["Vaccinated", "High Energy", "Social"],        bio: "Blue-eyed Husky full of playful energy and outdoor adventure spirit.", img: "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?auto=format&fit=crop&w=700&q=80" },
+  kaju:     { name: "Kaju",     cat: "Dogs",    meta: "Beagle • 1 yr • Male",                shelter: "Happy Tails Shelter, Nagpur",  badges: ["Vaccinated", "Neutered", "Apartment Friendly"], bio: "Curious, floppy-eared Beagle who fits right into any loving home.",   img: "https://images.unsplash.com/photo-1505628346881-b72b27e84530?auto=format&fit=crop&w=700&q=80" },
+  rani:     { name: "Rani",     cat: "Dogs",    meta: "Labrador Retriever • 2 yrs • Female", shelter: "Jeevdaya Sanctuary, Nagpur",   badges: ["Vaccinated", "Spayed", "Family Pet"],         bio: "Calm, loving Labrador who adores car rides and greeting everyone.",   img: "https://images.unsplash.com/photo-1591769225440-811ad7d6eab3?auto=format&fit=crop&w=700&q=80" },
+
+  // Cats (5)
+  luna:     { name: "Luna",     cat: "Cats",    meta: "Tabby Cat • 1 yr • Female",           shelter: "Purrfect Paws, Nagpur",        badges: ["Vaccinated", "Spayed", "Indoor Friendly"],    bio: "Affectionate tabby who loves sunny windowsills and feather toys.",     img: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=700&q=80" },
+  chiku:    { name: "Chiku",    cat: "Cats",    meta: "Indie Tabby Cat • 1 yr • Male",       shelter: "Purrfect Paws, Nagpur",        badges: ["Vaccinated", "Neutered", "Playful"],          bio: "Street-smart, energetic Indian cat who loves curling up beside you.", img: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=700&q=80" },
+  bagheera: { name: "Bagheera", cat: "Cats",    meta: "Bombay Black Cat • 2 yrs • Male",     shelter: "Meow Haven, Nagpur",           badges: ["Vaccinated", "Neutered", "Calm"],             bio: "Glossy black coat and golden eyes; purrs the moment you pet him.",    img: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=700&q=80" },
+  misti:    { name: "Misti",    cat: "Cats",    meta: "Persian Cat • 1.5 yrs • Female",      shelter: "Meow Haven, Nagpur",           badges: ["Vaccinated", "Spayed", "Gentle"],             bio: "Fluffy, sweet-tempered Persian who enjoys peaceful afternoons.",      img: "https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=700&q=80" },
+  nova:     { name: "Nova",     cat: "Cats",    meta: "Siamese Cat • 1 yr • Female",         shelter: "Purrfect Paws, Nagpur",        badges: ["Vaccinated", "Spayed", "Social"],             bio: "Blue-eyed Siamese who loves following you from room to room.",        img: "https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&w=700&q=80" },
+
+  // Rabbits (5)
+  mochi:    { name: "Mochi",    cat: "Rabbits", meta: "Holland Lop • 8 mo • Male",           shelter: "Little Whiskers, Nagpur",      badges: ["Vaccinated", "Litter Trained", "Gentle"],     bio: "Fluffy bunny who enjoys leafy greens and cozy indoor naps.",          img: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=700&q=80" },
+  barfi:    { name: "Barfi",    cat: "Rabbits", meta: "Angora White • 8 mo • Female",        shelter: "Little Whiskers, Nagpur",      badges: ["Vaccinated", "Litter Trained", "Fluffy"],     bio: "Snow-white bundle of joy who loves snacking on coriander leaves.",     img: "https://images.unsplash.com/photo-1535241749838-299277b6305f?auto=format&fit=crop&w=700&q=80" },
+  golu:     { name: "Golu",     cat: "Rabbits", meta: "Holland Lop • 10 mo • Male",          shelter: "GreenPaws Rescue, Nagpur",     badges: ["Vaccinated", "Neutered", "Kid Friendly"],     bio: "Chubby cheeks and floppy ears; loves gentle head rubs.",              img: "https://images.unsplash.com/photo-1518796745738-41048802f99a?auto=format&fit=crop&w=700&q=80" },
+  oreo:     { name: "Oreo",     cat: "Rabbits", meta: "Dutch Rabbit • 7 mo • Male",          shelter: "GreenPaws Rescue, Nagpur",     badges: ["Vaccinated", "Litter Trained", "Curious"],    bio: "Classic tuxedo pattern and a curious, active personality.",           img: "https://images.unsplash.com/photo-1452857297128-d9c29adba80b?auto=format&fit=crop&w=700&q=80" },
+  coco:     { name: "Coco",     cat: "Rabbits", meta: "Mini Rex • 9 mo • Female",            shelter: "Little Whiskers, Nagpur",      badges: ["Vaccinated", "Velvet Coat", "Calm"],          bio: "Plush velvety brown coat; loves sitting calmly beside you.",          img: "https://images.unsplash.com/photo-1591382386627-349b692688ff?auto=format&fit=crop&w=700&q=80" }
+};
+
+const getFavs = () => JSON.parse(localStorage.getItem("pawFavs")) || ["biscuit", "luna", "mochi"];
+const toggleFav = (id) => {
+  const f = getFavs();
+  localStorage.setItem("pawFavs", JSON.stringify(f.includes(id) ? f.filter(x => x !== id) : [...f, id]));
+};
+const petKey = new URLSearchParams(location.search).get("pet") || "biscuit";
+const currentPet = PETS[petKey] || PETS.biscuit;
